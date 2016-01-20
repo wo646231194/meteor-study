@@ -1,0 +1,19 @@
+<head>
+  <title>meteor1</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+  {{>test}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="test">
+    <h1>Hello,{{displayName "hu" "yang"}}</h1>
+</template>
