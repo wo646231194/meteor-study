@@ -1,0 +1,14 @@
+<head>
+  <title>Reactive</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  <input name="a" value="{{a}}"/>+<input name="b" value="{{b}}"/>=<input name="c" value="{{c}}"/>
+  {{> hello}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
