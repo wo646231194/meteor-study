@@ -1,0 +1,90 @@
+<head>
+  <title>Template</title>
+</head>
+
+<body>
+  <h1>欢迎使用 Meteor!</h1>
+  html传参
+  {{> hello name="胡洋" age=24}}
+  js传参
+  {{> hello getProfile}}
+
+  <p>你的期末考试成绩如下:</p>
+  {{#with math=99 english=60}}
+      <ul>with传参
+          <li>数学：{{math}}</li>
+          <li>英语：{{english}}</li>
+      </ul>
+  {{/with}}
+  <ul> js传参
+      <li>体育：{{et}}</li>
+      <li>美术：{{paiting}}</li>
+  </ul>
+
+  {{>salary}}
+
+  {{>phone}}
+
+  {{>message name="胡洋" tel="110"}}
+
+  {{> list}}
+
+  <button>切换</button>
+  {{#if flag}}
+      <h1>恭喜！你已经登录进来啦！</h1>
+  {{else}}
+      <h1>抱歉！你还没有登录！</h1>
+  {{/if}}
+
+  {{> navi}}
+  {{> Template.dynamic template=tplname}}
+</body>
+
+<template name="hello">
+  <h4>Hello {{name}} , 您已经 {{age}} 岁了!</h4>
+    <h1 class="cls1 {{extcls}}">HELLO</h1>
+    <p {{attrs}}>somethins is wrong</p>
+</template>
+
+<template name="salary">
+    html 传参
+    <h4>Hello huyang , 当月工资为 {{getSalary "huyang" overtime=ture gender="male"}} !</h4>
+</template>
+
+<template name="phone">
+    {{! 模板标签中路径的第一个标识符被视为helper }}
+    <h4>Hello,{{phone.name}}已使用{{phone.age}} 年!</h4>
+</template>
+
+<template name="message">
+    <input type="text" placeholder="请输入消息内容...">
+    <button>发送消息</button>
+</template>
+
+<template name="list">
+    <ul>
+        {{#each friends}}
+            <li>{{name}}</li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="navi">
+    <ul>
+        {{#each links}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="blogs">
+    <h1>My BLOGS</h1>
+</template>
+
+<template name="musics">
+    <h1>My MUSICS</h1>
+</template>
+
+<template name="sports">
+    <h1>My SPORTS</h1>
+</template>
