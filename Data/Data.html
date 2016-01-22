@@ -1,0 +1,103 @@
+<head>
+  <title>Data</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> hello}}
+  {{>sender}}
+  {{> updater}}
+  {{> criteria}}
+  {{> persons}}
+  {{> friends}}
+  {{> tpl_foreach}}
+  {{> tpl_map}}
+  {{> tpl_fetch}}
+  {{> tpl_count}}
+{{>msg}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="sender">
+    <form action="">
+        <label>姓名</label>
+        <input type="text" name="uname" value="" placeholder="请输入姓名"/><br>
+        <label>消息</label>
+        <textarea name="msg" rows="4" cols="16" placeholder="请输入消息"></textarea>
+        <button type="submit">发送</button>
+    </form>
+</template>
+
+<template name="msg">
+    <div>
+        {{#each messages}}
+            <span>{{text}}</span>{{time}}<br/>
+        {{/each}}
+    </div>
+</template>
+
+<template name="updater">
+    <span>{{id}}</span>
+    <button id="inc">inc age</button>
+    <button id="dec">dec age</button>
+</template>
+
+<template name="criteria">
+    <input type="text" placeholder="name">
+    <button>find</button>
+</template>
+
+<template name="persons">
+    <table>
+        <thead>
+        <tr><td>id</td><td>name</td><td>age</td></tr>
+        </thead>
+        <tbody>
+        {{#each persons}}
+            <tr><td><a href="{{_id}}">{{_id}}</a></td><td>{{name}}</td><td>{{age}}</td></tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<template name="friends">
+    <table>
+        <thead>
+        <tr><td>name</td><td>operation</td></tr>
+        </thead>
+        <tbody>
+        {{#each friends}}
+            <tr><td>{{name}}</td><td><button>remove</button></td></tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<template name="tpl_foreach">
+    <ul id="foreach">
+    </ul>
+</template>
+
+<template name="tpl_map">
+    <ul>
+        {{#each titles}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="tpl_fetch">
+    <ul>
+        {{#each news}}
+            <li>{{title}} from {{source}} time:{{time}}</li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="tpl_count">
+    <p>total count of news: {{count}}</p>
+</template>
